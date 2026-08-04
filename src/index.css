@@ -1,1 +1,44 @@
 @import "tailwindcss";
+
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+  }
+  
+  .glass-hover {
+    transition: all 0.3s ease;
+  }
+  .glass-hover:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(33, 200, 246, 0.3);
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, #21C8F6 0%, #6C63FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .accent-glow {
+    position: absolute;
+    filter: blur(80px);
+    opacity: 0.15;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .status-chip {
+    background: rgba(24, 226, 153, 0.1);
+    border: 1px solid rgba(24, 226, 153, 0.2);
+    color: #18E299;
+    padding: 4px 12px;
+    border-radius: 99px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}

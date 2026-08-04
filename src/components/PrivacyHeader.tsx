@@ -1,91 +1,112 @@
-import { motion } from 'motion/react';
-import { Smartphone, MailOpen, Activity } from 'lucide-react';
-import { APP_DETAILS } from '../privacyData';
+import React from 'react';
+import { Shield, Sparkles, Lock, ShieldCheck, CheckCircle2, Clock, Building2, Layers } from 'lucide-react';
+import { APP_INFO, PALETTE } from '../constants/theme';
+import { ThemeMode } from '../types';
 
-export default function PrivacyHeader() {
+interface PrivacyHeaderProps {
+  themeMode: ThemeMode;
+}
+
+export const PrivacyHeader: React.FC<PrivacyHeaderProps> = ({ themeMode }) => {
+  const isDark = themeMode === 'dark';
+
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 md:p-12 shadow-2xl backdrop-blur-xl mb-10">
-      {/* Background glow points */}
-      <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-teal-500/20 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 rounded-full bg-emerald-500/20 blur-3xl pointer-events-none" />
+    <div className="relative pt-6 pb-8 px-4 sm:px-8 overflow-hidden rounded-3xl border transition-all duration-300">
+      {/* Background Gradient Orbs */}
+      <div 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full blur-[100px] pointer-events-none opacity-40"
+        style={{
+          background: `radial-gradient(circle, ${PALETTE.primary} 0%, ${PALETTE.secondary} 50%, transparent 100%)`
+        }}
+      />
+      <div 
+        className="absolute -top-10 -right-10 w-48 h-48 rounded-full blur-3xl pointer-events-none opacity-30"
+        style={{ background: PALETTE.accent }}
+      />
 
-      <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-          {/* Logo representation - Glorious CSS glowing AI logo based on Geometric Balance Design */}
-          <motion.div 
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="relative flex-shrink-0 flex items-center justify-center w-14 h-14 rounded-xl bg-teal-500 border border-teal-400 shadow-[0_0_20px_rgba(20,184,166,0.5)]"
+      {/* Main Container */}
+      <div className="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto">
+        {/* Animated Premium Privacy Shield Illustration */}
+        <div className="relative mb-6 group cursor-pointer">
+          {/* Outer Rotating Glowing Ring */}
+          <div 
+            className="absolute -inset-3 rounded-3xl opacity-75 blur-md transition duration-500 group-hover:opacity-100 animate-pulse"
+            style={{
+              background: `linear-gradient(45deg, ${PALETTE.primary}, ${PALETTE.secondary}, ${PALETTE.accent})`,
+            }}
+          />
+
+          {/* Shield Badge Container */}
+          <div 
+            className={`relative w-24 h-24 sm:w-28 sm:h-28 rounded-3xl flex items-center justify-center border backdrop-blur-2xl transition-transform duration-500 group-hover:scale-105 shadow-2xl ${
+              isDark ? 'bg-slate-900/90 border-white/15' : 'bg-white/90 border-slate-200'
+            }`}
           >
-            {/* Logo visuals */}
-            <div className="relative flex flex-col items-center">
-              <span className="font-sans text-xs font-black tracking-tighter text-black">IELTS</span>
-              <span className="font-mono text-lg font-black tracking-tight text-slate-950 leading-none">AI</span>
-            </div>
-          </motion.div>
-
-          {/* Titles & Description */}
-          <div>
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="px-3 py-1 text-xs font-mono font-medium rounded-full bg-teal-500/10 text-teal-300 border border-teal-500/20 shadow-sm">
-                Official Document
-              </span>
-              <span className="px-3 py-1 text-xs font-sans font-medium rounded-full bg-white/5 text-slate-300 border border-white/10">
-                Package: {APP_DETAILS.packageName}
-              </span>
+            {/* Center Shield Icon */}
+            <div className="relative">
+              <Shield className="w-12 h-12 sm:w-14 sm:h-14 text-[#21C8F6]" />
+              <Lock className="w-5 h-5 text-[#18E299] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-sans font-bold tracking-tight text-white mt-3 bg-gradient-to-r from-white via-teal-100 to-emerald-200 bg-clip-text text-transparent">
-              {APP_DETAILS.name}
-            </h1>
-            
-            <p className="text-slate-300 text-sm md:text-base mt-2 max-w-2xl font-light">
-              Privacy Policy & Data Protection Agreement for mobile prep platforms. Built for complete accountability, compliant security standards, and comprehensive transparency.
-            </p>
+            {/* AI Sparkle Badge */}
+            <div 
+              className="absolute -top-2 -right-2 px-2 py-0.5 rounded-full text-[10px] font-extrabold flex items-center gap-1 shadow-lg text-slate-950 animate-bounce"
+              style={{ background: PALETTE.accent }}
+            >
+              <Sparkles className="w-3 h-3 text-slate-950" />
+              <span>AI Shield</span>
+            </div>
           </div>
         </div>
 
-        {/* Badges / Platform Container */}
-        <div className="flex flex-col sm:flex-row lg:flex-col gap-4 min-w-[240px]">
-          {/* Calendar Box */}
-          <div className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
-            <div className="p-2 h-9 w-9 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center border border-emerald-500/20">
-              <MailOpen className="h-5 w-5" />
-            </div>
+        {/* Title */}
+        <h1 className="text-3xl sm:text-5xl font-black tracking-tight mb-3">
+          <span className="bg-gradient-to-r from-[#21C8F6] via-white to-[#18E299] bg-clip-text text-transparent">
+            Privacy Policy
+          </span>
+        </h1>
+
+        {/* Subtitle */}
+        <p className={`text-base sm:text-lg max-w-2xl font-normal leading-relaxed mb-6 ${
+          isDark ? 'text-slate-300' : 'text-slate-600'
+        }`}>
+          Learn how <strong className="text-[#21C8F6] font-semibold">{APP_INFO.name}</strong> protects your personal information, candidate audio recordings, essays, and respects your privacy.
+        </p>
+
+        {/* Metadata Badges Bar */}
+        <div className={`w-full grid grid-cols-1 sm:grid-cols-3 gap-3 p-3 sm:p-4 rounded-2xl border backdrop-blur-xl ${
+          isDark 
+            ? 'bg-slate-900/60 border-white/10 text-slate-300' 
+            : 'bg-white/80 border-slate-200 text-slate-700 shadow-sm'
+        }`}>
+          {/* Last Updated */}
+          <div className="flex items-center justify-center gap-2 text-xs font-medium px-3 py-2 rounded-xl bg-white/5">
+            <Clock className="w-4 h-4 text-[#21C8F6]" />
             <div>
-              <p className="text-[10px] font-mono uppercase tracking-wider text-teal-400">Last Updated</p>
-              <p className="text-sm font-sans font-semibold text-slate-100">{APP_DETAILS.lastUpdated}</p>
+              <span className="block text-[10px] uppercase text-slate-400 font-bold">Last Updated</span>
+              <span className="font-semibold">{APP_INFO.lastUpdated}</span>
             </div>
           </div>
 
-          {/* Systems Box */}
-          <div className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
-            <div className="p-2 h-9 w-9 rounded-lg bg-teal-500/10 text-teal-400 flex items-center justify-center border border-teal-500/20">
-              <Smartphone className="h-5 w-5" />
-            </div>
+          {/* Version */}
+          <div className="flex items-center justify-center gap-2 text-xs font-medium px-3 py-2 rounded-xl bg-white/5">
+            <Layers className="w-4 h-4 text-[#6C63FF]" />
             <div>
-              <p className="text-[10px] font-mono uppercase tracking-wider text-emerald-400">Supported Platforms</p>
-              <div className="flex items-center gap-1.5 mt-0.5">
-                {APP_DETAILS.platforms.map((platform) => (
-                  <span key={platform} className="text-xs font-sans font-medium text-slate-200 bg-white/5 px-1.5 py-0.5 rounded border border-white/10">
-                    {platform}
-                  </span>
-                ))}
-              </div>
+              <span className="block text-[10px] uppercase text-slate-400 font-bold">Version</span>
+              <span className="font-semibold">{APP_INFO.version}</span>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* App Purpose Callout */}
-      <div className="mt-8 pt-6 border-t border-white/10 flex flex-col md:flex-row items-start gap-4 md:items-center justify-between text-slate-300 text-xs md:text-sm">
-        <div className="flex items-center gap-2">
-          <Activity className="h-4 w-4 text-teal-400 animate-pulse" />
-          <span className="text-teal-400 font-medium tracking-wide uppercase text-xs">Core Service Purpose:</span>
-          <span className="text-slate-100 italic font-mono font-normal">{APP_DETAILS.purpose}</span>
+          {/* Company */}
+          <div className="flex items-center justify-center gap-2 text-xs font-medium px-3 py-2 rounded-xl bg-white/5">
+            <Building2 className="w-4 h-4 text-[#18E299]" />
+            <div>
+              <span className="block text-[10px] uppercase text-slate-400 font-bold">Company</span>
+              <span className="font-semibold truncate max-w-[150px]">{APP_INFO.company}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
-}
+};

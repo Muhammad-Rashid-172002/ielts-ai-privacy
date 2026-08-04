@@ -1,23 +1,36 @@
-export interface PrivacySection {
+export type ThemeMode = 'dark' | 'light';
+
+export type DeviceFrameMode = 'mobile' | 'tablet' | 'desktop';
+
+export interface PrivacySectionItem {
   id: string;
   title: string;
-  iconName: string; // The Lucide icon key to display
-  content: string;
-  bullets?: { text: string; subtext?: string }[];
-  highlight?: boolean;
+  category: string;
+  iconName: string;
+  shortSummary: string;
+  content: string[];
+  bulletPoints?: string[];
+  badges?: string[];
+  lastModified?: string;
+  isImportant?: boolean;
 }
 
-export interface AppInfo {
-  name: string;
-  packageName: string;
-  email: string;
-  platforms: string[];
-  lastUpdated: string;
-  purpose: string;
-}
-
-export interface InteractiveCheckOption {
+export interface PrivacyCategory {
   id: string;
-  question: string;
+  title: string;
+  iconName: string;
   description: string;
+  sectionIds: string[];
+}
+
+export interface AccessibilitySettings {
+  fontSizeScalar: number; // 1.0 to 1.4
+  highContrast: boolean;
+  reducedMotion: boolean;
+}
+
+export interface ToastMessage {
+  id: string;
+  message: string;
+  type?: 'success' | 'info' | 'warning';
 }

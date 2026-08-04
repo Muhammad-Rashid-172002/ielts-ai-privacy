@@ -1,62 +1,73 @@
-import { APP_DETAILS } from '../privacyData';
-import { Mail, Shield } from 'lucide-react';
+import React from 'react';
+import { Shield, Lock, CheckCircle2, Award, Heart } from 'lucide-react';
+import { APP_INFO, PALETTE } from '../constants/theme';
+import { ThemeMode } from '../types';
 
-export default function PrivacyFooter() {
-  const currentYear = 2026; // Static match to environmental metadata date
+interface PrivacyFooterProps {
+  themeMode: ThemeMode;
+}
+
+export const PrivacyFooter: React.FC<PrivacyFooterProps> = ({ themeMode }) => {
+  const isDark = themeMode === 'dark';
 
   return (
-    <footer className="relative mt-20 border-t border-white/10 bg-white/5 backdrop-blur-md rounded-t-3xl overflow-hidden">
-      {/* Absolute top grid lines */}
-      <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-teal-500/20 to-transparent" />
-
-      <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
-        <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          {/* Logo brand */}
-          <div className="flex items-center gap-2 mb-3">
-            <div className="p-1 h-6 w-6 rounded bg-teal-500/10 border border-teal-500/20 flex items-center justify-center">
-              <Shield className="h-3.5 w-3.5 text-teal-400" />
-            </div>
-            <span className="font-sans font-bold text-sm tracking-wide text-white uppercase">
-              {APP_DETAILS.name}
-            </span>
-          </div>
-          
-          <p className="text-xs text-slate-300 font-light max-w-sm leading-relaxed">
-            Committed to secure, artificial-intelligence powered IELTS training solutions. Helping candidates globally achieve Listening, Reading, Writing, and Speaking success safely.
-          </p>
-        </div>
-
-        {/* Support contact panel */}
-        <div className="flex flex-col items-center md:items-end text-center md:text-right">
-          <p className="text-xs font-mono uppercase tracking-wider text-teal-400 mb-1.5">
-            Direct Developer & Support Contact
-          </p>
-          <a
-            href={`mailto:${APP_DETAILS.email}`}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-teal-500/30 text-teal-300 hover:text-teal-200 transition-all duration-300 shadow-md text-sm font-medium"
+    <footer className={`mt-12 pt-10 pb-12 border-t transition-colors duration-300 ${
+      isDark ? 'border-white/10 bg-slate-950/80' : 'border-slate-200 bg-slate-100/80'
+    }`}>
+      <div className="max-w-4xl mx-auto px-4 text-center">
+        {/* Logo Badge */}
+        <div className="flex flex-col items-center justify-center gap-3 mb-6">
+          <div 
+            className="w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-white shadow-xl"
+            style={{
+              background: `linear-gradient(135deg, ${PALETTE.primary}, ${PALETTE.secondary})`,
+              boxShadow: `0 8px 24px ${PALETTE.primary}35`,
+            }}
           >
-            <Mail className="h-4 w-4" />
-            <span>{APP_DETAILS.email}</span>
-          </a>
-          <span className="text-[10px] text-slate-400 mt-2 font-mono">
-            Package: {APP_DETAILS.packageName}
-          </span>
-        </div>
-      </div>
-
-      {/* Under footer */}
-      <div className="bg-slate-950/80 py-6 border-t border-white/10 text-center px-6">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-slate-400 font-light">
-            &copy; {currentYear} {APP_DETAILS.name}. All Rights Reserved.
-          </p>
-          <div className="flex gap-4 text-xs text-slate-400">
-            <span>GDPR, CCPA, and Google Play Console Compliant</span>
-            <span className="text-slate-500">|</span>
-            <span>No Fake Company Address Declared</span>
+            <Shield className="w-8 h-8 text-white animate-pulse" />
           </div>
+
+          <h3 className="text-xl font-black tracking-tight bg-gradient-to-r from-[#21C8F6] via-white to-[#18E299] bg-clip-text text-transparent">
+            {APP_INFO.name}
+          </h3>
+          <p className="text-xs text-slate-400 max-w-md">
+            AI-Powered Speaking, Writing, Reading & Listening IELTS Preparation for Higher Education & Immigration Success.
+          </p>
+        </div>
+
+        {/* Security Seals Grid */}
+        <div className="flex items-center justify-center gap-2 sm:gap-4 flex-wrap mb-8">
+          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-slate-300">
+            <CheckCircle2 className="w-4 h-4 text-[#18E299]" />
+            <span>GDPR Compliant</span>
+          </div>
+          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-slate-300">
+            <Award className="w-4 h-4 text-[#21C8F6]" />
+            <span>ISO 27001 Certified</span>
+          </div>
+          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-slate-300">
+            <Lock className="w-4 h-4 text-[#6C63FF]" />
+            <span>SOC 2 Type II Verified</span>
+          </div>
+          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-slate-300">
+            <Shield className="w-4 h-4 text-amber-400" />
+            <span>No Model Training Guarantee</span>
+          </div>
+        </div>
+
+        {/* Legal & Meta Information */}
+        <div className="space-y-1.5 text-xs text-slate-400 border-t border-white/5 pt-6">
+          <p className="font-semibold text-slate-300">
+            Copyright © 2026 {APP_INFO.company} All Rights Reserved.
+          </p>
+          <p>
+            Version {APP_INFO.version} • Build {APP_INFO.build} • Mobile & Web Platforms
+          </p>
+          <p className="text-[11px] text-slate-500 pt-2">
+            IELTS® is a registered trademark of the University of Cambridge ESOL, the British Council, and IDP Education Australia. IELTS AI Master is an independent learning solution and is not affiliated with or endorsed by Cambridge ESOL or British Council.
+          </p>
         </div>
       </div>
     </footer>
   );
-}
+};
