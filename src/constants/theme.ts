@@ -27,8 +27,8 @@ export const APP_INFO = {
   name: 'IELTS AI Master',
   version: 'v2.4.0',
   build: '2026.08',
-  company: 'Nexora Technologies',
+  company: 'Korvenza Tech',
   lastUpdated: 'August 4, 2026',
-  supportEmail: 'muhammadrashid172002@gmail.com',
+  supportEmail: 'support@korvenzatech.com',
   websiteUrl: 'https://ielts-ai-privacy.vercel.app/',
 };
