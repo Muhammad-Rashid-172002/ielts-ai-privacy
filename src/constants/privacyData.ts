@@ -85,13 +85,12 @@ export const PRIVACY_SECTIONS: PrivacySectionItem[] = [
     isImportant: true,
     badges: ['Core Policy', 'ISO 27001'],
     content: [
-      'At IELTS AI Master ("we", "our", or "us"), operated by IELTS AI Master Technologies Ltd., your privacy is paramount. This Privacy Policy explains how we collect, process, store, and safeguard your personal information when you use our mobile and web applications.',
+      'At IELTS AI Master ("we", "our", or "us"), operated by Korvenza Technologies., your privacy is paramount. This Privacy Policy explains how we collect, process, store, and safeguard your personal information when you use our mobile and web applications.',
       'Our primary objective is to empower candidates worldwide with AI-driven IELTS preparation tools (Speaking feedback, Writing evaluations, Reading speed tools, and Listening drills) while maintaining Apple and Google enterprise-grade data protection standards.',
       'By using IELTS AI Master, you agree to the practices described in this policy. If you have any concerns regarding how your data is handled, please reach out to our Data Protection Officer.'
     ],
     bulletPoints: [
       'Transparent AI processing without selling personal data',
-      'End-to-end encryption for audio recordings and essay submissions',
       'Complete user control over data export and instant account erasure'
     ]
   },
@@ -555,8 +554,8 @@ export const PRIVACY_SECTIONS: PrivacySectionItem[] = [
     badges: ['24/7 Support'],
     content: [
       'If you have questions, feedback, or formal data protection requests regarding this Privacy Policy, our dedicated team is here to assist.',
-      'Email: muhammadrashid172002@gmail.com',
-      'Company: Nexora Technologies.',
+      'Email: support@korvenzatech.com',
+      'Company: Korvenza Technologies.',
       'Address: Islamabad, Pakistan'
     ]
   }

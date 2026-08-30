@@ -36,24 +36,27 @@ export const PrivacyFooter: React.FC<PrivacyFooterProps> = ({ themeMode }) => {
         </div>
 
         {/* Security Seals Grid */}
-        <div className="flex items-center justify-center gap-2 sm:gap-4 flex-wrap mb-8">
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-slate-300">
-            <CheckCircle2 className="w-4 h-4 text-[#18E299]" />
-            <span>GDPR Compliant</span>
-          </div>
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-slate-300">
-            <Award className="w-4 h-4 text-[#21C8F6]" />
-            <span>ISO 27001 Certified</span>
-          </div>
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-slate-300">
-            <Lock className="w-4 h-4 text-[#6C63FF]" />
-            <span>SOC 2 Type II Verified</span>
-          </div>
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-slate-300">
-            <Shield className="w-4 h-4 text-amber-400" />
-            <span>No Model Training Guarantee</span>
-          </div>
-        </div>
+       <div className="flex items-center justify-center gap-2 sm:gap-4 flex-wrap mb-8">
+  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-slate-300">
+    <Lock className="w-4 h-4 text-[#18E299]" />
+    <span>Secure Data Transmission</span>
+  </div>
+
+  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-slate-300">
+    <Shield className="w-4 h-4 text-[#21C8F6]" />
+    <span>Access-Controlled Services</span>
+  </div>
+
+  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-slate-300">
+    <CheckCircle2 className="w-4 h-4 text-[#6C63FF]" />
+    <span>Account & Data Controls</span>
+  </div>
+
+  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-slate-300">
+    <Award className="w-4 h-4 text-amber-400" />
+    <span>Privacy-Focused Design</span>
+  </div>
+</div>
 
         {/* Legal & Meta Information */}
         <div className="space-y-1.5 text-xs text-slate-400 border-t border-white/5 pt-6">

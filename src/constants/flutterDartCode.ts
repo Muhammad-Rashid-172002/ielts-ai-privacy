@@ -260,8 +260,8 @@ class PrivacyConstants {
   static const String appName = 'IELTS AI Master';
   static const String version = 'v2.4.0 (Build 2026.08)';
   static const String lastUpdated = 'August 4, 2026';
-  static const String companyName = 'IELTS AI Master Technologies Ltd.';
-  static const String supportEmail = 'privacy@ieltsaimaster.com';
+  static const String companyName = 'Korvenza Technologies.';
+  static const String supportEmail = 'support@korvenzatech.com';
 
   // Categories list
   static const List<PrivacyCategoryData> categories = [
