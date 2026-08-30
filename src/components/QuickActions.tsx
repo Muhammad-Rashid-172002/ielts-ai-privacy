@@ -31,17 +31,18 @@ export const QuickActions: React.FC<QuickActionsProps> = ({
   const isDark = themeMode === 'dark';
 
   const actions = [
-    {
-      id: 'support',
-      title: 'Contact Support',
-      description: '24/7 dedicated privacy assistance team',
-      icon: Headphones,
-      color: PALETTE.primary,
-      action: () => {
-        onShowToast('Opening IELTS AI Master Support portal...');
-        window.open('https://ieltsaimaster.com/support', '_blank');
-      },
-    },
+{
+  id: 'support',
+  title: 'Contact Support',
+  description: 'Get help with privacy and data requests',
+  icon: Headphones,
+  color: PALETTE.primary,
+  action: () => {
+    onShowToast('Opening email support...');
+    window.location.href =
+      'mailto:support@korvenzatech.com?subject=IELTS%20AI%20Master%20Privacy%20Support';
+  },
+},
     {
       id: 'email',
       title: 'Email Us',
