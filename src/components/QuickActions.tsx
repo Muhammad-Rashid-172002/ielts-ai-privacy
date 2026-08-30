@@ -63,16 +63,21 @@ export const QuickActions: React.FC<QuickActionsProps> = ({
         window.open(APP_INFO.websiteUrl, '_blank');
       },
     },
-    {
-      id: 'terms',
-      title: 'Terms of Service',
-      description: 'Terms of use & candidate obligations',
-      icon: FileText,
-      color: '#3B82F6',
-      action: () => {
-        onShowToast('Viewing IELTS AI Master Terms of Service...');
-      },
-    },
+ {
+  id: 'terms',
+  title: 'Terms of Service',
+  description: 'Terms of use & candidate obligations',
+  icon: FileText,
+  color: '#3B82F6',
+  action: () => {
+    onShowToast('Opening IELTS AI Master Terms of Service...');
+    window.open(
+      'https://ielts-ai-master-terms.vercel.app/terms',
+      '_blank',
+      'noopener,noreferrer'
+    );
+  },
+},
     {
       id: 'export-data',
       title: 'Export My Data',
