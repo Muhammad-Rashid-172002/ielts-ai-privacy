@@ -78,14 +78,7 @@ export const QuickActions: React.FC<QuickActionsProps> = ({
     );
   },
 },
-    {
-      id: 'export-data',
-      title: 'Export My Data',
-      description: 'Download full ZIP/JSON archive',
-      icon: Download,
-      color: '#A855F7',
-      action: onOpenExportModal,
-    },
+
     {
       id: 'pdf',
       title: 'Download PDF Policy',
